@@ -2,13 +2,16 @@ import React from 'react';
 
 
 const MusicTable = (props)=>{
+    
     return(<table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Artist</th>
+        <th scope="col">Album</th>
+        <th scope="col">Song Title</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Release Date</th>
       </tr>
     </thead>
     <tbody>

@@ -1,7 +1,13 @@
 import React from 'react';
 import reactDom from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
 
-const jsxElement= <h1>Dev Code Music</h1>
+import App from "../src/App"
 
-reactDom.render(jsxElement, document.getElementById('root'));
+
+
+reactDom.render(
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>,
+    document.getElementById('root')
+    );
