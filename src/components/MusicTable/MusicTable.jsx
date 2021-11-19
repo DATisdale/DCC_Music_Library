@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const MusicTable = (props)=>{
+const MusicTable = ()=>{
     
     return(<table class="table">
     <thead>
