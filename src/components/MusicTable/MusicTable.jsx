@@ -1,45 +1,51 @@
-import React from 'react';
+import React, {Component} from "react";
+import axios from "axios";
 
+class MusicTable extends Component {
+  constructor (props) {
+      super(props);
+      this.state ={
+       songs:[]    
+      }
+  }
+  
+  componentDidMount() {
+      this.fetchSongs();
+  }
+  async fetchSongs() {
+      try{
+         let response = await axios.get("http://www.devcodecampmusiclibrary.com/api/music")
+          console.log(response.data)
+          this.setState({
+              songs: response.data
+          });
+      }catch (error) {
+          console.log(error)
+      }
+  }
 
-const MusicTable = ()=>{
-    
-    return(<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Artist</th>
-        <th scope="col">Album</th>
-        <th scope="col">Song Title</th>
-        <th scope="col">Genre</th>
-        <th scope="col">Release Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
-
-    )
-
-}
-
-
-
-
-export default MusicTable 
+  render () {
+      console.log(this.state)
+      return (
+          <div className = "MusicTable">
+              <h1>Dev Code Music Library!</h1>
+              {this.state.songs.length > 0 ? (
+                  this.state.songs.map(songs=>{
+                  return <tr key ={songs.id}>
+                  <td>{songs.id}</td>
+                  <td>{songs.title}</td>
+                  <td>{songs.album}</td>
+                  <td>{songs.artist}</td>
+                  <td>{songs.genre}</td>
+                  <td>{songs.releasedate}</td>
+                </tr>;
+              })
+              ) : (
+              <h2>Loading</h2>
+              )}
+                  
+          </div>
+      );
+  }
+}    
+export default MusicTable;
