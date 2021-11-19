@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
+import './SongTable.css'
+
 
 class MusicTable extends Component {
   constructor (props) {
@@ -37,7 +39,7 @@ class MusicTable extends Component {
                   <td>{songs.album}</td>
                   <td>{songs.artist}</td>
                   <td>{songs.genre}</td>
-                  <td>{songs.releasedate}</td>
+                  <td>{songs.releaseDate}</td>
                 </tr>;
               })
               ) : (
