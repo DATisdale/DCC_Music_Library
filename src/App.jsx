@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MusicTable from  '../src/components/MusicTable/MusicTable'
+//import MusicTable from  '../src/components/MusicTable/MusicTable'
 //import './style.css'
 import axios from 'axios';
 //import MusicList from '../src/components/Music List/MusicList'
@@ -40,7 +40,7 @@ class App extends Component {
                 ) : (
                 <h2>Loading</h2>
                 )}
-                <MusicTable/>    
+                   
             </div>
         );
     }
