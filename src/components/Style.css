@@ -1,3 +1,13 @@
+body{
+    height: 150vh;
+    background-image: url("../components/img/oscar-keys-ojVMh1QTVGY-unsplash.jpg");
+    background-size:  cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+    
 
-
-
+}
+h1{
+    color: rgba(238, 24, 24, 0.5)
+}

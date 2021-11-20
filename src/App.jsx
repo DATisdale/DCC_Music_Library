@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import MusicTable from '../src/components/MusicTable/MusicTable'
-//import '../src/components/img'
+import './components/Style.css';
 //import axios from 'axios'
 
 

@@ -31,7 +31,17 @@ class MusicTable extends Component {
       return (
           <div className = "MusicTable">
               <h1>Dev Code Music Library!</h1>
+              <tr>
+                  <td>#</td>
+                  <td>Title</td>
+                  <td>Album</td>
+                  <td>Artist</td>
+                  <td>Genre</td>
+                  <td>Release Date</td>
+                  
+              </tr>
               {this.state.songs.length > 0 ? (
+                  //this.state.songs.filter(songs => songs.includes("The Beatles")).map(songs=>{
                   this.state.songs.map(songs=>{
                   return <tr key ={songs.id}>
                   <td>{songs.id}</td>
@@ -40,7 +50,8 @@ class MusicTable extends Component {
                   <td>{songs.artist}</td>
                   <td>{songs.genre}</td>
                   <td>{songs.releaseDate}</td>
-                </tr>;
+                </tr>
+                ;
               })
               ) : (
               <h2>Loading</h2>
