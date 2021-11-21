@@ -3,12 +3,14 @@ import './TitleBar.css'
 
 function TitleBar(props){
     return (
-        <div className= "row row-space">
-            <div className = "col=md-12" style={{padding: 0}}>
-                <div className = "titlebar-nav">
-                    <h1>DCC Music Library</h1>
-                </div>
-            </div>
-        </div>
+        <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/#">Home
+            </a>
+          </div>
+        </nav>
+      </div>
     )
 }
+export default TitleBar

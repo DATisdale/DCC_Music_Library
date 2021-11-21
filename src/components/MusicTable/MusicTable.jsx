@@ -30,7 +30,6 @@ class MusicTable extends Component {
       console.log(this.state)
       return (
           <div className = "MusicTable">
-              <h1>Dev Code Music Library!</h1>
               <tr>
                   <td>#</td>
                   <td>Title</td>
