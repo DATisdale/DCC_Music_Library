@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
-import MusicTable from '../src/components/MusicTable/MusicTable'
+//import MusicTable from '../src/components/MusicTable/MusicTable'
 import './components/Style.css';
-//import axios from 'axios'
 import TitleBar from '../src/components/TitleBar'
+import SearchBar from './components/SearchBar';
+//import MusicTable from './components/MusicTable/MusicTable';
+
 
 
 class App extends Component {
@@ -11,15 +13,16 @@ class App extends Component {
         this.state ={
          songs:[]    
         }
+        
     }
+
     
   
   
     render () {
         return(
-            <><TitleBar />
-            <MusicTable /></>
-        )
+            <><TitleBar /><SearchBar /></>
+        )         
     }
   }    
   export default App;

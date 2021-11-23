@@ -8,6 +8,7 @@ function TitleBar(props){
           <div class="container-fluid">
             <a class="navbar-brand" href="/#">Home
             </a>
+            
           </div>
         </nav>
       </div>

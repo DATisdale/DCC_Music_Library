@@ -1,52 +1,65 @@
-import React, {Component} from 'react';
-import './SearchBarStyle/FindBarStyle.css'
-import axios from 'axios'
+import React, {useState,useEffect} from "react";
+import axios from "axios";
+import '../components/MusicTable/SongTable.css'
 
 
- class SearchBar extends Component  {
-    state = {
-        songs: [],
-        loading: false,
-        value: ''
-      };
-    componentDidMount(){}
-      search = async val => {
-        this.setState({ loading: true });
-        const res = await axios(
-            "http://www.devcodecampmusiclibrary.com/api/music"
-        );
-        const songs = await res.data.results;
-    
-        this.setState({ songs, loading: false });
-      };
-    
-      onChangeHandler = async e => {
-        this.search(e.target.value);
-        this.setState({ value: e.target.value });
-      };
-    
-      get renderSongs() {
-        let songs = <h1>Dev Code Music Library</h1>;
-        if (this.state.songs) {
-          songs = <songs list={this.state.songs} />;
-        }
-    
-        return songs;
-      }
-    
-      render() {
-        return (
-          <div>
-            <input
-              value={this.state.value}
-              onChange={e => this.onChangeHandler(e)}
-              placeholder="Search for music"
-            />
-            {this.renderSongs}
-          </div>
-        );
-      }
-    }
-    
+function SearchBar() {
+    let[search,setSearch]=useState('');
+    const [songs, setSongs]=useState([])
+    const [filteredData,setFilteredData]=useState([])
+
+    useEffect(()=>{
+        
+        axios.get("http://www.devcodecampmusiclibrary.com/api/Music")
+        .then((response)=>{
+            setSongs(response.data)
+        })
+        
+    },[search])
+
+
+    useEffect(()=>{
+        setFilteredData(
+            
+            //songs.filter((song)=>song.artist.toLowerCase().includes(search.toLowerCase()))
+            songs.filter((song)=>song.artist.toLowerCase().includes(search.toLowerCase())),
+            songs.filter((song)=>song.title.toLowerCase().includes(search.toLowerCase()))
+
+            
+        )
+    },)
+    return (
+        <div className = "MusicTable">
+            
+            <input type="text" placeholder="search..."onChange={changeHandler}/>
+            {console.log(search)}
+
+
+
+            {filteredData.map((song)=>{
+                return <tr key ={songs.id}>
+                    
+                <td>{song.id}</td>
+                <td>{song.title}</td>
+                <td>{song.album}</td>
+                <td>{song.artist}</td>
+                <td>{song.genre}</td>
+                <td>{song.releaseDate}</td>
+              </tr>
+
+                    
+            })}
+        </div>
+    )
+
+
+function changeHandler(event){
+    const searchInput = event.target.value;
+    setSearch(searchInput);
+
+}
+}
+
+
 
 export default SearchBar

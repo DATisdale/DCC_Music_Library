@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
-import './SongTable.css'
+import '../MusicTable/SongTable.css'
 
 
 class MusicTable extends Component {
@@ -30,6 +30,7 @@ class MusicTable extends Component {
       console.log(this.state)
       return (
           <div className = "MusicTable">
+              
               <tr>
                   <td>#</td>
                   <td>Title</td>
@@ -39,8 +40,9 @@ class MusicTable extends Component {
                   <td>Release Date</td>
                   
               </tr>
+              
               {this.state.songs.length > 0 ? (
-                  //this.state.songs.filter(songs => songs.includes("The Beatles")).map(songs=>{
+                  
                   this.state.songs.map(songs=>{
                   return <tr key ={songs.id}>
                   <td>{songs.id}</td>
